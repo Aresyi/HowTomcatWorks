@@ -19,8 +19,18 @@
   </developers>
   
   
+  <dependencies>
+  	<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>servlet-api</artifactId>
+		    <version>2.3</version><!-- 这里使用低版本的servlet -->
+		    <scope>provided</scope>
+	</dependency>
+  </dependencies>
+  
   <build/>
   <modules>
     <module>how-tomcat-works-ex01</module>
+    <module>how-tomcat-works-ex02</module>
   </modules>
 </project>
