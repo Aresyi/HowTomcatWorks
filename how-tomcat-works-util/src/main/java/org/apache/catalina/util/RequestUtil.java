@@ -1,18 +1,64 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * $Header: /home/cvs/jakarta-tomcat-4.0/catalina/src/share/org/apache/catalina/util/RequestUtil.java,v 1.19 2002/02/21 22:51:55 remm Exp $
+ * $Revision: 1.19 $
+ * $Date: 2002/02/21 22:51:55 $
+ *
+ * ====================================================================
+ *
+ * The Apache Software License, Version 1.1
+ *
+ * Copyright (c) 1999 The Apache Software Foundation.  All rights
+ * reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ *
+ * 3. The end-user documentation included with the redistribution, if
+ *    any, must include the following acknowlegement:
+ *       "This product includes software developed by the
+ *        Apache Software Foundation (http://www.apache.org/)."
+ *    Alternately, this acknowlegement may appear in the software itself,
+ *    if and wherever such third-party acknowlegements normally appear.
+ *
+ * 4. The names "The Jakarta Project", "Tomcat", and "Apache Software
+ *    Foundation" must not be used to endorse or promote products derived
+ *    from this software without prior written permission. For written
+ *    permission, please contact apache@apache.org.
+ *
+ * 5. Products derived from this software may not be called "Apache"
+ *    nor may "Apache" appear in their names without prior written
+ *    permission of the Apache Group.
+ *
+ * THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED.  IN NO EVENT SHALL THE APACHE SOFTWARE FOUNDATION OR
+ * ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+ * USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ * ====================================================================
+ *
+ * This software consists of voluntary contributions made by many
+ * individuals on behalf of the Apache Software Foundation.  For more
+ * information on the Apache Software Foundation, please see
+ * <http://www.apache.org/>.
+ *
+ * [Additional notices, if required by prior licensing conditions]
+ *
  */
 
 
@@ -31,7 +77,7 @@ import javax.servlet.http.Cookie;
  *
  * @author Craig R. McClanahan
  * @author Tim Tye
- * @version $Revision: 782763 $ $Date: 2009-06-08 21:14:37 +0100 (Mon, 08 Jun 2009) $
+ * @version $Revision: 1.19 $ $Date: 2002/02/21 22:51:55 $
  */
 
 public final class RequestUtil {
@@ -73,6 +119,7 @@ public final class RequestUtil {
             buf.append("\"");
         }
 
+        long age = cookie.getMaxAge();
         if (cookie.getMaxAge() >= 0) {
             buf.append("; Max-Age=\"");
             buf.append(cookie.getMaxAge());
@@ -146,28 +193,12 @@ public final class RequestUtil {
      * @param path Relative path to be normalized
      */
     public static String normalize(String path) {
-        return normalize(path, true);
-    }
-
-    /**
-     * Normalize a relative URI path that may have relative values ("/./",
-     * "/../", and so on ) it it.  <strong>WARNING</strong> - This method is
-     * useful only for normalizing application-generated paths.  It does not
-     * try to perform security checks for malicious input.
-     *
-     * @param path Relative path to be normalized
-     * @param replaceBackSlash Should '\\' be replaced with '/'
-     */
-    public static String normalize(String path, boolean replaceBackSlash) {
 
         if (path == null)
             return null;
 
         // Create a place for the normalized path
         String normalized = path;
-
-        if (replaceBackSlash && normalized.indexOf('\\') >= 0)
-            normalized = normalized.replace('\\', '/');
 
         if (normalized.equals("/."))
             return "/";
@@ -291,6 +322,7 @@ public final class RequestUtil {
      *
      * @param map Map that accumulates the resulting parameters
      * @param data Input string containing request parameters
+     * @param urlParameters true if we're parsing parameters on the URL
      *
      * @exception IllegalArgumentException if the data is malformed
      */
@@ -298,20 +330,9 @@ public final class RequestUtil {
         throws UnsupportedEncodingException {
 
         if ((data != null) && (data.length() > 0)) {
-        
-            // use the specified encoding to extract bytes out of the
-            // given string so that the encoding is not lost. If an
-            // encoding is not specified, let it use platform default
-            byte[] bytes = null;
-            try {
-                if (encoding == null) {
-                    bytes = data.getBytes();
-                } else {
-                    bytes = data.getBytes(encoding);
-                }
-            } catch (UnsupportedEncodingException uee) {
-            }
-            
+            int len = data.length();
+            byte[] bytes = new byte[len];
+            data.getBytes(0, len, bytes, 0);
             parseParameters(map, bytes, encoding);
         }
 
@@ -349,17 +370,9 @@ public final class RequestUtil {
         if (str == null)
             return (null);
 
-        // use the specified encoding to extract bytes out of the
-        // given string so that the encoding is not lost. If an
-        // encoding is not specified, let it use platform default
-        byte[] bytes = null;
-        try {
-            if (enc == null) {
-                bytes = str.getBytes();
-            } else {
-                bytes = str.getBytes(enc);
-            }
-        } catch (UnsupportedEncodingException uee) {}
+        int len = str.length();
+        byte[] bytes = new byte[len];
+        str.getBytes(0, len, bytes, 0);
 
         return URLDecode(bytes, enc);
 
@@ -475,6 +488,7 @@ public final class RequestUtil {
         throws UnsupportedEncodingException {
 
         if (data != null && data.length > 0) {
+            int    pos = 0;
             int    ix = 0;
             int    ox = 0;
             String key = null;
@@ -491,12 +505,8 @@ public final class RequestUtil {
                     ox = 0;
                     break;
                 case '=':
-                    if (key == null) {
-                        key = new String(data, 0, ox, encoding);
-                        ox = 0;
-                    } else {
-                        data[ox++] = c;
-                    }                   
+                    key = new String(data, 0, ox, encoding);
+                    ox = 0;
                     break;
                 case '+':
                     data[ox++] = (byte)' ';
@@ -521,3 +531,4 @@ public final class RequestUtil {
 
 
 }
+

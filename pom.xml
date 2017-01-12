@@ -34,5 +34,6 @@
     <module>how-tomcat-works-ex02</module>
     <module>how-tomcat-works-ex03</module>
     <module>how-tomcat-works-util</module>
+    <module>how-tomcat-works-ex04</module>
   </modules>
 </project>

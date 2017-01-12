@@ -1,0 +1,2604 @@
+<?xml version="1.0"?>
+<!DOCTYPE mbeans-descriptors PUBLIC
+ "-//Apache Software Foundation//DTD Model MBeans Configuration File"
+ "http://jakarta.apache.org/commons/dtds/mbeans-descriptors.dtd">
+
+<!--
+     Descriptions of JMX MBeans for Catalina
+
+     $Id: mbeans-descriptors.xml,v 1.70 2002/09/09 23:39:03 amyroh Exp $
+ -->
+
+<mbeans-descriptors>
+
+
+  <mbean         name="AccessLogValve"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Valve that generates a web server access log"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.valves.AccessLogValve">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="directory"
+          description="The directory in which log files are created"
+                 type="java.lang.String"/>
+
+    <attribute   name="pattern"
+          description="The pattern used to format our access log lines"
+                 type="java.lang.String"/>
+
+    <attribute   name="prefix"
+          description="The prefix that is added to log file filenames"
+                 type="java.lang.String"/>
+
+    <attribute   name="resolveHosts"
+          description="Resolve hosts"
+                   is="true"
+                 type="boolean"/>
+
+    <attribute   name="suffix"
+          description="The suffix that is added to log file filenames"
+                 type="java.lang.String"/>
+
+  </mbean>
+
+
+  <mbean         name="BasicAuthenticator"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="An Authenticator and Valve implementation of HTTP BASIC
+                        Authentication"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.authenticator.BasicAuthenticator">
+
+    <attribute   name="algorithm"
+          description="The message digest algorithm to be used when generating
+                        session identifiers"
+                 type="java.lang.String"/>
+
+    <attribute   name="cache"
+          description="Should we cache authenticated Principals if the request
+                        is part of an HTTP session?"
+                 type="boolean"/>
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="entropy"
+          description="A String initialization parameter used to increase the
+                        entropy of the initialization of our random number
+                        generator"
+                 type="java.lang.String"/>
+  </mbean>
+
+
+  <mbean         name="CertificatesValve"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Valve that exposes SSL certificate information"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.valves.CertificatesValve">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+  </mbean>
+
+
+  <mbean         name="ContextConfig"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Startup event listener for a Context that configures the
+                        properties of that Context, and the associated defined
+                        servlets"
+               domain="Catalina"
+                group="Listener"
+                 type="org.apache.catalina.startup.ContextConfig">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+  </mbean>
+
+
+  <mbean         name="ContextEnvironment"
+            className="org.apache.catalina.mbeans.ContextEnvironmentMBean"
+          description="Representation of an application environment entry"
+               domain="Catalina"
+                group="Resources"
+                 type="org.apache.catalina.deploy.ContextEnvironment">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="description"
+          description="The description of this environment entry"
+                 type="java.lang.String"/>
+
+    <attribute   name="name"
+          description="The name of this environment entry"
+                 type="java.lang.String"/>
+
+    <attribute   name="override"
+          description="Does this environment entry allow overrides by the
+	  application deployment descriptor"
+                 type="boolean"/>
+
+    <attribute   name="type"
+          description="The type of this environment entry"
+                 type="java.lang.String"/>
+
+    <attribute   name="value"
+          description="The value of this environment entry"
+                 type="java.lang.String"/>
+
+  </mbean>
+
+
+  <mbean         name="ContextResource"
+            className="org.apache.catalina.mbeans.ContextResourceMBean"
+          description="Representation of a resource reference for a web application"
+               domain="Catalina"
+                group="Resources"
+                 type="org.apache.catalina.deploy.ContextResource">
+
+    <attribute   name="auth"
+          description="The authorization requirement for this resource"
+                 type="java.lang.String"/>
+
+    <attribute   name="description"
+          description="The description of this resource"
+                 type="java.lang.String"/>
+
+    <attribute   name="name"
+          description="The name of this resource"
+                 type="java.lang.String"/>
+
+    <attribute   name="scope"
+          description="The sharing scope of this resource factory"
+                 type="java.lang.String"/>
+
+    <attribute   name="type"
+          description="The type of this environment entry"
+                 type="java.lang.String"/>
+
+  </mbean>
+
+
+   <mbean         name="ContextResourceLink"
+            className="org.apache.catalina.mbeans.ContextResourceLinkMBean"
+          description="Representation of a resource link for a web application"
+               domain="Catalina"
+                group="Resources"
+                 type="org.apache.catalina.deploy.ContextResourceLink">
+
+    <attribute   name="global"
+          description="The global name of this resource"
+                 type="java.lang.String"/>
+
+    <attribute   name="name"
+          description="The name of this resource"
+                 type="java.lang.String"/>
+
+    <attribute   name="type"
+          description="The type of this resource"
+                 type="java.lang.String"/>
+
+  </mbean>
+
+
+  <mbean         name="CoyoteConnector"
+            className="org.apache.catalina.mbeans.ConnectorMBean"
+          description="Implementation of a Coyote connector"
+               domain="Catalina"
+                group="Connector"
+                 type="org.apache.coyote.tomcat4.CoyoteConnector">
+
+    <attribute   name="acceptCount"
+          description="The accept count for this Connector"
+                 type="int"/>
+
+    <attribute   name="address"
+          description="The IP address on which to bind"
+                 type="java.lang.String"/>
+
+    <attribute   name="bufferSize"
+          description="The input buffer size we should create on input streams"
+                 type="int"/>
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="clientAuth"
+          description="Should we require client authentication?"
+                 type="boolean"/>
+
+    <attribute   name="connectionTimeout"
+          description="Timeout value on the incoming connection"
+                 type="int"/>
+
+    <attribute   name="curProcessors"
+          description="Current number of active processors"
+                 type="int"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="enableLookups"
+          description="The 'enable DNS lookups' flag for this Connector"
+                 type="boolean"/>
+
+    <attribute   name="keystoreFile"
+          description="Pathname to the key store file to be used"
+                 type="java.lang.String"/>
+
+    <attribute   name="keystorePass"
+          description="Password for accessing the key store file"
+                 type="java.lang.String"/>
+
+    <attribute   name="maxProcessors"
+          description="The maximum number of processors allowed"
+                 type="int"/>
+
+    <attribute   name="minProcessors"
+          description="The minimum number of processors to start at
+                        initialization time"
+                 type="int"/>
+
+    <attribute   name="port"
+          description="The port number on which we listen for ajp13 requests"
+  		type="int"/>
+
+    <attribute   name="protocolHandlerClassName"
+          description="Coyote Protocol handler class name"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="proxyName"
+          description="Ther Server name to which we should pretend requests to this Connector"
+                 type="java.lang.String"/>
+
+    <attribute   name="proxyPort"
+          description="Ther Server port to which we should pretend requests to this Connector"
+                 type="int"/>
+
+    <attribute   name="redirectPort"
+          description="The redirect port for non-SSL to SSL redirects"
+                 type="int"/>
+
+    <attribute   name="scheme"
+          description="Protocol name for this Connector (http, https)"
+                 type="java.lang.String"/>
+
+    <attribute   name="secret"
+          description="Authentication secret (I guess ... not in Javadocs)"
+                 type="java.lang.String"/>
+
+    <attribute   name="secure"
+          description="Is this a secure (SSL) Connector?"
+                 type="boolean"/>
+
+    <attribute    name="tomcatAuthentication"
+           description="Should Tomcat perform all authentications?"
+                  type="boolean"/>
+
+  </mbean>
+
+
+  <mbean         name="DefaultContext"
+              className="org.apache.catalina.mbeans.DefaultContextMBean"
+          description="Used to store the default configuration a Host will use
+                        when creating a Context"
+               domain="Catalina"
+                group="Default-Context"
+                 type="org.apache.catalina.core.StandardDefaultContext">
+
+    <attribute   name="cookies"
+          description="Should we attempt to use cookies for session id
+                        communication?"
+                 type="boolean"/>
+
+    <attribute   name="crossContext"
+          description="Should we allow the ServletContext.getContext() method to
+                        access the context of other web applications in this
+                        server?"
+                 type="boolean"/>
+
+    <attribute   name="reloadable"
+          description="The reloadable flag for this web application"
+                 type="boolean"/>
+
+    <attribute   name="swallowOutput"
+          description="Flag to set to cause the system.out and system.err 
+	  to be redirected to the logger when executing a servlet"
+                 type="boolean"/>
+
+    <attribute   name="useNaming"
+          description="Create JNDI naming context?"
+                   is="true"
+                 type="boolean"/>
+
+    <operation   name="addEnvironment"
+          description="Add an environment entry for this web application"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="envName"
+          description="New environment entry name"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="addResource"
+          description="Add a resource reference for this web application"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="resourceName"
+          description="New resource reference name"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeEnvironment"
+          description="Remove any environment entry with the specified name"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="envName"
+          description="Name of the environment entry to remove"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeResource"
+          description="Remove any resource reference with the specified name"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="resourceName"
+          description="Name of the resource reference to remove"
+                 type="java.lang.String"/>
+    </operation>
+
+  </mbean>
+
+
+  <mbean         name="DigestAuthenticator"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="An Authenticator and Valve implementation of HTTP DIGEST
+                        Authentication"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.authenticator.DigestAuthenticator">
+
+    <attribute   name="algorithm"
+          description="The message digest algorithm to be used when generating
+                        session identifiers"
+                 type="java.lang.String"/>
+
+    <attribute   name="cache"
+          description="Should we cache authenticated Principals if the request
+                        is part of an HTTP session?"
+                 type="boolean"/>
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="entropy"
+          description="A String initialization parameter used to increase the
+                        entropy of the initialization of our random number
+                        generator"
+                 type="java.lang.String"/>
+  </mbean>
+
+  <mbean         name="EngineConfig"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Startup event listener for a Engine that configures the
+                        properties of that Engine, and the associated defined
+                        contexts"
+               domain="Catalina"
+                group="Listener"
+                 type="org.apache.catalina.startup.EngineConfig">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+  </mbean>
+
+
+  <mbean         name="ErrorReportValve"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Implementation of a Valve that outputs HTML error pages"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.valves.ErrorReportValve">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+  </mbean>
+
+
+  <mbean         name="ErrorDispatcherValve"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Implementation of a Valve that handles the error
+                        dispatch"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.valves.ErrorDispatcherValve">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+  </mbean>
+
+
+  <mbean         name="FileLogger"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Implementation of Logger that appends log messages to a
+                        file"
+               domain="Catalina"
+                group="Logger"
+                 type="org.apache.catalina.logger.FileLogger">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="directory"
+          description="The directory in which log files are created"
+                 type="java.lang.String"/>
+
+    <attribute   name="prefix"
+          description="The prefix that is added to log file filenames"
+                 type="java.lang.String"/>
+
+    <attribute   name="suffix"
+          description="The suffix that is added to log file filenames"
+                 type="java.lang.String"/>
+
+    <attribute   name="timestamp"
+          description="Should logged messages be date/time stamped?"
+                 type="boolean"/>
+
+    <attribute   name="verbosity"
+          description="The verbosity level for above which log messages may be
+                        filtered"
+                 type="int"/>
+
+  </mbean>
+
+  <mbean         name="FormAuthenticator"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="An Authenticator and Valve implementation of FORM BASED
+                        Authentication"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.authenticator.FormAuthenticator">
+
+    <attribute   name="algorithm"
+          description="The message digest algorithm to be used when generating
+                        session identifiers"
+                 type="java.lang.String"/>
+
+    <attribute   name="cache"
+          description="Should we cache authenticated Principals if the request
+                        is part of an HTTP session?"
+                 type="boolean"/>
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="entropy"
+          description="A String initialization parameter used to increase the
+                        entropy of the initialization of our random number
+                        generator"
+                 type="java.lang.String"/>
+  </mbean>
+
+
+  <mbean         name="Group"
+            className="org.apache.catalina.mbeans.GroupMBean"
+          description="Group from a user database"
+               domain="Users"
+                group="Group"
+                 type="org.apache.catalina.Group">
+
+    <attribute   name="description"
+          description="Description of this group"
+                 type="java.lang.String"/>
+
+    <attribute   name="groupname"
+          description="Group name of this group"
+                 type="java.lang.String"/>
+
+    <attribute   name="roles"
+          description="MBean Names of roles for this group"
+                 type="java.lang.String[]"
+            writeable="false"/>
+
+    <attribute   name="users"
+          description="MBean Names of user members of this group"
+                 type="java.lang.String[]"
+            writeable="false"/>
+
+    <operation   name="addRole"
+          description="Add a new authorized role for this group"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="role"
+          description="Role to be added"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeRole"
+          description="Remove an old authorized role for this group"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="role"
+          description="Role to be removed"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeRoles"
+          description="Remove all authorized roles for this group"
+               impact="ACTION"
+           returnType="void">
+    </operation>
+
+  </mbean>
+
+
+  <mbean         name="HostConfig"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Startup event listener for a Host that configures the
+                        properties of that Host, and the associated defined
+                        contexts"
+               domain="Catalina"
+                group="Listener"
+                 type="org.apache.catalina.startup.HostConfig">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="configClass"
+          description="The Java class name of the Context configuration class we
+                        should use"
+                 type="java.lang.String"/>
+
+    <attribute   name="contextClass"
+          description="The Java class name of the Context implementation we
+                        should use"
+                 type="java.lang.String"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+  </mbean>
+
+
+  <mbean         name="Http10Connector"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="HTTP/1.0 Connector for Tomcat Standalone"
+               domain="Catalina"
+                group="Connector"
+                 type="org.apache.catalina.connector.http10.HttpConnector">
+
+    <attribute   name="acceptCount"
+          description="The accept count for this Connector"
+                 type="int"/>
+
+    <attribute   name="address"
+          description="The IP address on which to bind"
+                 type="java.lang.String"/>
+
+    <attribute   name="bufferSize"
+          description="The input buffer size we should create on input streams"
+                 type="int"/>
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="connectionTimeout"
+          description="Timeout value on the incoming connection"
+                 type="int"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="enableLookups"
+          description="The 'enable DNS lookups' flag for this Connector"
+                 type="boolean"/>
+
+    <attribute   name="maxProcessors"
+          description="The maximum number of processors allowed"
+                 type="int"/>
+
+    <attribute   name="minProcessors"
+          description="The minimum number of processors to start at
+                        initialization time"
+                 type="int"/>
+
+    <attribute   name="port"
+          description="TCP port number to listen on"
+                 type="int"/>
+
+    <attribute   name="proxyName"
+          description="The server name to which we should pretend requests to
+                        this Connector were directed"
+                 type="java.lang.String"/>
+
+    <attribute   name="proxyPort"
+          description="The server port to which we should pretend requests to
+                        this Connector were directed"
+                 type="int"/>
+
+    <attribute   name="redirectPort"
+          description="The redirect port for non-SSL to SSL redirects"
+                 type="int"/>
+
+    <attribute   name="scheme"
+          description="Protocol name for this Connector (http, https)"
+                 type="java.lang.String"/>
+
+    <attribute   name="secure"
+          description="Is this a secure (SSL) Connector?"
+                 type="boolean"/>
+
+  </mbean>
+
+
+  <mbean         name="Http11Connector"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="HTTP/1.1 Connector for Tomcat Standalone"
+               domain="Catalina"
+                group="Connector"
+                 type="org.apache.catalina.connector.http.HttpConnector">
+
+    <attribute   name="acceptCount"
+          description="The accept count for this Connector"
+                 type="int"/>
+
+    <attribute   name="address"
+          description="The IP address on which to bind"
+                 type="java.lang.String"/>
+
+    <attribute   name="allowChunking"
+          description="Flag which indicates if HTTP/1.1 chunking transfer
+                        encoding can be used"
+                 type="boolean"/>
+
+    <attribute   name="bufferSize"
+          description="The input buffer size we should create on input streams"
+                 type="int"/>
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="connectionTimeout"
+          description="Timeout value on the incoming connection"
+                 type="int"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="enableLookups"
+          description="The 'enable DNS lookups' flag for this Connector"
+                 type="boolean"/>
+
+    <attribute   name="maxProcessors"
+          description="The maximum number of processors allowed"
+                 type="int"/>
+
+    <attribute   name="minProcessors"
+          description="The minimum number of processors to start at
+                        initialization time"
+                 type="int"/>
+
+    <attribute   name="port"
+          description="TCP port number to listen on"
+                 type="int"/>
+
+    <attribute   name="proxyName"
+          description="The server name to which we should pretend requests to
+                        this Connector were directed"
+                 type="java.lang.String"/>
+
+    <attribute   name="proxyPort"
+          description="The server port to which we should pretend requests to
+                        this Connector were directed"
+                 type="int"/>
+
+    <attribute   name="redirectPort"
+          description="The redirect port for non-SSL to SSL redirects"
+                 type="int"/>
+
+    <attribute   name="scheme"
+          description="Protocol name for this Connector (http, https)"
+                 type="java.lang.String"/>
+
+    <attribute   name="secure"
+          description="Is this a secure (SSL) Connector?"
+                 type="boolean"/>
+
+  </mbean>
+
+
+  <mbean         name="JAASRealm"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Implmentation of Realm that authenticates users via the
+                        Java Authentication and Authorization Service (JAAS)"
+               domain="Catalina"
+                group="Realm"
+                 type="org.apache.catalina.realm.JAASRealm">
+
+    <attribute   name="appName"
+          description="The application name passed to the JAAS LoginContext,
+                        which uses it to select the set of relevant
+                        LoginModules"
+                 type="java.lang.String"/>
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="digest"
+          description="Digest algorithm used in storing passwords in a
+                        non-plaintext format"
+                 type="java.lang.String"/>
+
+    <attribute   name="roleClassNames"
+          description="Comma-delimited list of javax.security.Principal classes
+                        that represent security roles"
+                 type="java.lang.String"/>
+
+    <attribute   name="userClassNames"
+          description="Comma-delimited list of javax.security.Principal classes
+                        that represent individual users"
+                 type="java.lang.String"/>
+
+    <attribute   name="validate"
+          description="Should we validate client certificate chains when they
+                        are presented?"
+                 type="java.lang.String"/>
+
+  </mbean>
+
+
+  <mbean         name="JDBCRealm"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Implementation of Realm that works with any JDBC
+                        supported database"
+               domain="Catalina"
+                group="Realm"
+                 type="org.apache.catalina.realm.JDBCRealm">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="connectionName"
+          description="The connection username to use when trying to connect to
+                        the database"
+                 type="java.lang.String"/>
+
+    <attribute   name="connectionPassword"
+          description="The connection URL to use when trying to connect to the
+                        database"
+                 type="java.lang.String"/>
+
+    <attribute   name="connectionURL"
+          description="The connection URL to use when trying to connect to the
+                        database"
+                 type="java.lang.String"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="digest"
+          description="Digest algorithm used in storing passwords in a
+                        non-plaintext format"
+                 type="java.lang.String"/>
+
+    <attribute   name="driverName"
+          description="The JDBC driver to use"
+                 type="java.lang.String"/>
+
+    <attribute   name="roleNameCol"
+          description="The column in the user role table that names a role"
+                 type="java.lang.String"/>
+
+    <attribute   name="userCredCol"
+          description="The column in the user table that holds the user's
+                        credentials"
+                 type="java.lang.String"/>
+
+    <attribute   name="userNameCol"
+          description="The column in the user table that holds the user's
+                        username"
+                 type="java.lang.String"/>
+
+    <attribute   name="userRoleTable"
+          description="The table that holds the relation between user's and
+                        roles"
+                 type="java.lang.String"/>
+
+    <attribute   name="userTable"
+          description="The table that holds user data"
+                 type="java.lang.String"/>
+
+  </mbean>
+
+
+  <mbean         name="JDBCUserDatabase"
+            className="org.apache.catalina.mbeans.JDBCUserDatabaseMBean"
+          description="JDBC based user and group database"
+               domain="Users"
+                group="UserDatabase"
+                 type="org.apache.catalina.users.JDBCUserDatabase">
+
+    <attribute   name="groups"
+          description="MBean Names of all defined groups"
+                 type="java.lang.String[]"
+            writeable="false"/>
+
+    <attribute   name="roles"
+          description="MBean Names of all defined roles"
+                 type="java.lang.String[]"
+            writeable="false"/>
+
+    <attribute   name="users"
+          description="MBean Names of all defined users"
+                 type="java.lang.String[]"
+            writeable="false"/>
+
+    <operation   name="createGroup"
+          description="Create new group and return MBean name"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="groupname"
+          description="Group name of the new group"
+                 type="java.lang.String"/>
+      <parameter name="description"
+          description="Description of the new group"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createRole"
+          description="Create new role and return MBean name"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="rolename"
+          description="Role name of the new role"
+                 type="java.lang.String"/>
+      <parameter name="description"
+          description="Description of the new role"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createUser"
+          description="Create new user and return MBean name"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="username"
+          description="User name of the new user"
+                 type="java.lang.String"/>
+      <parameter name="password"
+          description="Password of the new user"
+                 type="java.lang.String"/>
+      <parameter name="fullName"
+          description="Full name of the new user"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="findGroup"
+          description="Return MBean Name of the specified group (if any)"
+               impact="INFO"
+           returnType="java.lang.String">
+      <parameter name="groupname"
+          description="Group name of the requested group"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="findRole"
+          description="Return MBean Name of the specified role (if any)"
+               impact="INFO"
+           returnType="java.lang.String">
+      <parameter name="rolename"
+          description="Role name of the requested role"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="findUser"
+          description="Return MBean Name of the specified user (if any)"
+               impact="INFO"
+           returnType="java.lang.String">
+      <parameter name="username"
+          description="User name of the requested user"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeGroup"
+          description="Remove existing group (and all user memberships)"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="groupname"
+          description="Group name of the group to remove"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeRole"
+          description="Remove existing role"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="rolename"
+          description="Role name of the role to remove"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeUser"
+          description="Remove existing user (and all group memberships)"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="username"
+          description="User name of the user to remove"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="save"
+          description="Save current users and groups to persistent storage"
+               impact="ACTION"
+           returnType="void">
+    </operation>
+
+  </mbean>
+
+
+  <mbean         name="JNDIRealm"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Implementation of Realm that works with a directory
+                        server accessed via the Java Naming and Directory
+                        Interface (JNDI) APIs"
+               domain="Catalina"
+                group="Realm"
+                 type="org.apache.catalina.realm.JNDIRealm">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="connectionName"
+          description="The connection username for the server we will contact"
+                 type="java.lang.String"/>
+
+    <attribute   name="connectionPassword"
+          description="The connection password for the server we will contact"
+                 type="java.lang.String"/>
+
+    <attribute   name="connectionURL"
+          description="The connection URL for the server we will contact"
+                 type="java.lang.String"/>
+
+    <attribute   name="contextFactory"
+          description="The JNDI context factory for this Realm"
+                 type="java.lang.String"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="digest"
+          description="Digest algorithm used in storing passwords in a
+                        non-plaintext format"
+                 type="java.lang.String"/>
+
+    <attribute   name="roleBase"
+          description="The base element for role searches"
+                 type="java.lang.String"/>
+
+    <attribute   name="roleName"
+          description="The name of the attribute containing roles held elsewhere"
+                 type="java.lang.String"/>
+
+    <attribute   name="roleSearch"
+          description="The message format used to select roles for a user"
+                 type="java.lang.String"/>
+
+    <attribute   name="roleSubtree"
+          description="Should we search the entire subtree for matching
+                        memberships?"
+                 type="boolean"/>
+
+    <attribute   name="userBase"
+          description="The base element for user searches"
+                 type="java.lang.String"/>
+
+    <attribute   name="userPassword"
+          description="The attribute name used to retrieve the user password"
+                 type="java.lang.String"/>
+
+    <attribute   name="userPattern"
+          description="The message format used to select a user"
+                 type="java.lang.String"/>
+
+     <attribute   name="userRoleName"
+          description="The name of the attribute in the user's entry containing
+                       roles for that user"
+                 type="java.lang.String"/>
+
+   <attribute   name="userSearch"
+         description="The message format used to search for a user"
+                type="java.lang.String"/>
+
+    <attribute   name="userSubtree"
+          description="Should we search the entire subtree for matching
+                       users?"
+                 type="boolean"/>
+
+  </mbean>
+
+
+  <mbean         name="MBeanFactory"
+            className="org.apache.catalina.mbeans.MBeanFactory"
+          description="Factory for MBeans and corresponding components"
+               domain="Catalina">
+
+    <!-- IMPLEMENTATION NOTE - all of the createXxxxx methods create a new  -->
+    <!-- component and attach it to Catalina's component tree.  The return  -->
+    <!-- value is the object name of the corresponding MBean for the new    -->
+    <!-- component.                                                         -->
+
+    <operation   name="createAccessLoggerValve"
+          description="Create a new AccessLoggerValve"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createAjpConnector"
+          description="Create a new AjpConnector"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+     <parameter name="address"
+          description="The IP address on which to bind"
+                 type="java.lang.String"/>
+      <parameter name="port"
+          description="TCP port number to listen on"
+                 type="int"/>
+    </operation>
+
+    <operation   name="createDefaultContext"
+          description="Create a new DefaultContext"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createFileLogger"
+          description="Create a new FileLogger"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createHttpConnector"
+          description="Create a new HttpConnector"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+     <parameter name="address"
+          description="The IP address on which to bind"
+                 type="java.lang.String"/>
+      <parameter name="port"
+          description="TCP port number to listen on"
+                 type="int"/>
+    </operation>
+
+    <operation   name="createHttpsConnector"
+          description="Create a new HttpsConnector"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+     <parameter name="address"
+          description="The IP address on which to bind"
+                 type="java.lang.String"/>
+      <parameter name="port"
+          description="TCP port number to listen on"
+                 type="int"/>
+    </operation>
+
+    <operation   name="createJDBCRealm"
+          description="Create a new JDBC Realm"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createJNDIRealm"
+          description="Create a new JNDI Realm"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createMemoryRealm"
+          description="Create a new Memory Realm"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createRemoteAddrValve"
+          description="Create a new Remote Address Filter Valve"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createRemoteHostValve"
+          description="Create a new Remote Host Filter Valve"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createRequestDumperValve"
+          description="Create a new Request Dumper Valve"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createSingleSignOn"
+          description="Create a new Single Sign On Valve"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createStandardContext"
+          description="Create a new StandardContext"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+      <parameter name="path"
+          description="The context path for this Context"
+                 type="java.lang.String"/>
+      <parameter name="docBase"
+          description="Document base directory (or WAR) for ths Context"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createStandardEngine"
+          description="Create a new StandardEngine"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+      <parameter name="name"
+          description="Unique name of this Engine"
+                 type="java.lang.String"/>
+      <parameter name="defaultHost"
+          description="Default host name for this Engine"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createStandardHost"
+          description="Create a new StandardHost"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+      <parameter name="name"
+          description="Unique name of this Host"
+                 type="java.lang.String"/>
+      <parameter name="appBase"
+          description="Application base directory for this Host"
+                 type="java.lang.String"/>
+      <parameter name="unpackWARs"
+          description="Should we unpack WARs when auto-deploying?"
+                 type="boolean"/>
+    </operation>
+
+    <operation   name="createStandardManager"
+          description="Create a new StandardManager"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createStandardService"
+          description="Create a new StandardService"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+      <parameter name="name"
+          description="Unique name of this Service"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createSystemErrLogger"
+          description="Create a new System Error Logger"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createSystemOutLogger"
+          description="Create a new System Output Logger"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createUserDatabaseRealm"
+          description="Create a new UserDatabase Realm"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+      <parameter name="resourceName"
+          description="Global JNDI resource name of our UserDatabase instance"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createWebappLoader"
+          description="Create a new Web Application Loader"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="parent"
+          description="MBean Name of the associated parent component"
+                 type="java.lang.String"/>
+    </operation>
+
+    <!-- IMPLEMENTATION NOTE - all of the removeXxxxx methods cause the     -->
+    <!-- corresponding Catalina component (and any related child            -->
+    <!-- components to be stopped (if necessary) and removed, and the       -->
+    <!-- corresponding MBeans to be destroyed.                              -->
+
+    <operation   name="removeConnector"
+          description="Remove an existing Connector"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="name"
+          description="MBean Name of the component to be removed"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeContext"
+          description="Remove an existing Context"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="name"
+          description="MBean Name of the component to be removed"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeHost"
+          description="Remove an existing Host"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="name"
+          description="MBean Name of the component to be removed"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeLoader"
+          description="Remove an existing Loader"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="name"
+          description="MBean Name of the component to be removed"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeLogger"
+          description="Remove an existing Logger"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="name"
+          description="MBean Name of the component to be removed"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeManager"
+          description="Remove an existing Manager"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="name"
+          description="MBean Name of the component to be removed"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeRealm"
+          description="Remove an existing Realm"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="name"
+          description="MBean Name of the component to be removed"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeService"
+          description="Remove an existing Service"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="name"
+          description="MBean Name of the component to be removed"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeValve"
+          description="Remove an existing Valve"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="name"
+          description="MBean Name of the component to be removed"
+                 type="java.lang.String"/>
+    </operation>
+
+  </mbean>
+
+
+  <mbean         name="MemoryRealm"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Simple implementation of Realm that reads an XML file to
+                        configure the valid users, passwords, and roles"
+               domain="Catalina"
+                group="Realm"
+                 type="org.apache.catalina.realm.MemoryRealm">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="pathname"
+          description="The pathname of the XML file containing our database
+                        information"
+                 type="java.lang.String"/>
+
+  </mbean>
+
+
+  <mbean         name="MemoryUserDatabase"
+            className="org.apache.catalina.mbeans.MemoryUserDatabaseMBean"
+          description="In-memory user and group database"
+               domain="Users"
+                group="UserDatabase"
+                 type="org.apache.catalina.users.MemoryUserDatabase">
+
+    <attribute   name="encoding"
+          description="Character encoding to use when writing XML file"
+                 type="java.lang.String"/>
+
+    <attribute   name="groups"
+          description="MBean Names of all defined groups"
+                 type="java.lang.String[]"
+            writeable="false"/>
+
+    <attribute   name="pathname"
+          description="Relative or absolute pathname to database file"
+                 type="java.lang.String"/>
+
+    <attribute   name="roles"
+          description="MBean Names of all defined roles"
+                 type="java.lang.String[]"
+            writeable="false"/>
+
+    <attribute   name="users"
+          description="MBean Names of all defined users"
+                 type="java.lang.String[]"
+            writeable="false"/>
+
+    <operation   name="createGroup"
+          description="Create new group and return MBean name"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="groupname"
+          description="Group name of the new group"
+                 type="java.lang.String"/>
+      <parameter name="description"
+          description="Description of the new group"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createRole"
+          description="Create new role and return MBean name"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="rolename"
+          description="Role name of the new role"
+                 type="java.lang.String"/>
+      <parameter name="description"
+          description="Description of the new role"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="createUser"
+          description="Create new user and return MBean name"
+               impact="ACTION"
+           returnType="java.lang.String">
+      <parameter name="username"
+          description="User name of the new user"
+                 type="java.lang.String"/>
+      <parameter name="password"
+          description="Password of the new user"
+                 type="java.lang.String"/>
+      <parameter name="fullName"
+          description="Full name of the new user"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="findGroup"
+          description="Return MBean Name of the specified group (if any)"
+               impact="INFO"
+           returnType="java.lang.String">
+      <parameter name="groupname"
+          description="Group name of the requested group"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="findRole"
+          description="Return MBean Name of the specified role (if any)"
+               impact="INFO"
+           returnType="java.lang.String">
+      <parameter name="rolename"
+          description="Role name of the requested role"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="findUser"
+          description="Return MBean Name of the specified user (if any)"
+               impact="INFO"
+           returnType="java.lang.String">
+      <parameter name="username"
+          description="User name of the requested user"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeGroup"
+          description="Remove existing group (and all user memberships)"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="groupname"
+          description="Group name of the group to remove"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeRole"
+          description="Remove existing role"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="rolename"
+          description="Role name of the role to remove"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeUser"
+          description="Remove existing user (and all group memberships)"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="username"
+          description="User name of the user to remove"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="save"
+          description="Save current users and groups to persistent storage"
+               impact="ACTION"
+           returnType="void">
+    </operation>
+
+  </mbean>
+
+
+  <mbean         name="NamingContextListener"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Helper class used to initialize and populate the JNDI
+          context associated with each context and server"
+               domain="Catalina"
+                group="Listener"
+                 type="org.apache.catalina.core.NamingContextListener">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+  </mbean>
+
+
+  <mbean         name="NamingResources"
+            className="org.apache.catalina.mbeans.NamingResourcesMBean"
+          description="Holds and manages the naming resources defined in the
+	  J2EE Enterprise Naming Context and their associated JNDI context"
+               domain="Catalina"
+                group="Resources"
+                 type="org.apache.catalina.deploy.NamingResources">
+
+    <attribute   name="environments"
+          description="MBean Names of the set of defined environment entries
+	  for this web application"
+                 type="java.lang.String[]"
+            writeable="false"/>
+
+    <attribute   name="resources"
+          description="MBean Names of all the defined resource references
+	  for this application."
+                 type="java.lang.String[]"
+            writeable="false"/>
+
+    <attribute   name="resourceLinks"
+          description="MBean Names of all the defined resource link references
+	  for this application."
+                 type="java.lang.String[]"
+            writeable="false"/>
+
+    <operation   name="addEnvironment"
+          description="Add an environment entry for this web application"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="envName"
+          description="New environment entry name"
+                 type="java.lang.String"/>
+      <parameter name="type"
+          description="New environment entry type"
+                 type="java.lang.String"/>
+      <parameter name="value"
+          description="New environment entry value"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="addResource"
+          description="Add a resource reference for this web application"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="resourceName"
+          description="New resource reference name"
+                 type="java.lang.String"/>
+      <parameter name="type"
+          description="New resource reference type"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="addResourceLink"
+          description="Add a resource link reference for this web application"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="global"
+          description="New resource reference global name"
+                 type="java.lang.String"/>
+      <parameter name="resourceLinkName"
+          description="New resource reference name"
+                 type="java.lang.String"/>
+      <parameter name="type"
+          description="New resource reference type"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeEnvironment"
+          description="Remove any environment entry with the specified name"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="envName"
+          description="Name of the environment entry to remove"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeResource"
+          description="Remove any resource reference with the specified name"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="resourceName"
+          description="Name of the resource reference to remove"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeResourceLink"
+          description="Remove any resource link reference with the specified name"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="resourceLinkName"
+          description="Name of the resource reference to remove"
+                 type="java.lang.String"/>
+    </operation>
+
+  </mbean>
+
+
+  <mbean         name="RemoteAddrValve"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Concrete implementation of RequestFilterValve that
+                        filters based on the string representation of the remote
+                        client's IP address"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.valves.RemoteAddrValve">
+
+    <attribute   name="allow"
+          description="The comma-delimited set of allow expressions"
+                 type="java.lang.String"/>
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="deny"
+          description="The comma-delimited set of deny expressions"
+                 type="java.lang.String"/>
+
+  </mbean>
+
+
+  <mbean         name="RemoteHostValve"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Concrete implementation of RequestFilterValve that
+                        filters based on the string representation of the remote
+                        client's host name"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.valves.RemoteHostValve">
+
+    <attribute   name="allow"
+          description="The comma-delimited set of allow expressions"
+                 type="java.lang.String"/>
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="deny"
+          description="The comma-delimited set of deny expressions"
+                 type="java.lang.String"/>
+
+  </mbean>
+
+
+  <mbean         name="NonLoginAuthenticator"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="An Authenticator and Valve implementation that checks
+			only security constraints not involving user authentication"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.authenticator.NonLoginAuthenticator">
+
+    <attribute   name="algorithm"
+          description="The message digest algorithm to be used when generating
+                        session identifiers"
+                 type="java.lang.String"/>
+
+    <attribute   name="cache"
+          description="Should we cache authenticated Principals if the request
+                        is part of an HTTP session?"
+                 type="boolean"/>
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="entropy"
+          description="A String initialization parameter used to increase the
+                        entropy of the initialization of our random number
+                        generator"
+                 type="java.lang.String"/>
+  </mbean>
+
+
+  <mbean         name="RequestDumperValve"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Implementation of a Valve that logs interesting contents
+                        from the specified Request and the corresponding
+                        Response"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.valves.RequestDumperValve">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+  </mbean>
+
+
+  <mbean         name="Role"
+            className="org.apache.catalina.mbeans.RoleMBean"
+          description="Security role from a user database"
+               domain="Users"
+                group="Role"
+                 type="org.apache.catalina.Role">
+
+    <attribute   name="description"
+          description="Description of this role"
+                 type="java.lang.String"/>
+
+    <attribute   name="rolename"
+          description="Role name of this role"
+                 type="java.lang.String"/>
+
+  </mbean>
+
+
+  <mbean         name="SingleSignOn"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="A Valve that supports a 'single signon' user experience"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.authenticator.SingleSignOn">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+  </mbean>
+
+
+  <mbean         name="SSLAuthenticator"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="An Authenticator and Valve implementation of
+                        authentication that utilizes SSL certificates to
+                        identify client users"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.authenticator.SSLAuthenticator">
+
+    <attribute   name="algorithm"
+          description="The message digest algorithm to be used when generating
+                        session identifiers"
+                 type="java.lang.String"/>
+
+    <attribute   name="cache"
+          description="Should we cache authenticated Principals if the request
+                        is part of an HTTP session?"
+                 type="boolean"/>
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="entropy"
+          description="A String initialization parameter used to increase the
+                        entropy of the initialization of our random number
+                        generator"
+                 type="java.lang.String"/>
+  </mbean>
+
+
+  <mbean         name="StandardContext"
+            className="org.apache.catalina.mbeans.StandardContextMBean"
+          description="Standard Context Component"
+               domain="Catalina"
+                group="Context"
+                 type="org.apache.catalina.core.StandardContext">
+
+    <attribute   name="cookies"
+          description="Should we attempt to use cookies for session id
+                        communication?"
+                 type="boolean"/>
+
+    <attribute   name="cookies"
+          description="Should we attempt to use cookies for session id
+                        communication?"
+                 type="boolean"/>
+
+    <attribute   name="crossContext"
+          description="Should we allow the ServletContext.getContext() method to
+                        access the context of other web applications in this
+                        server?"
+                 type="boolean"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="docBase"
+          description="The document root for this web application"
+                 type="java.lang.String"/>
+
+    <attribute   name="environments"
+          description="MBean Names of the set of defined environment entries
+	  for this web application"
+                 type="java.lang.String[]"
+            writeable="false"/>
+
+    <attribute   name="managedResource"
+          description="The managed resource this MBean is associated with"
+                 type="java.lang.Object"/>
+
+    <attribute   name="override"
+          description="The DefaultContext override flag for this web
+                        application"
+                 type="boolean"/>
+
+    <attribute   name="path"
+          description="The context path for this Context"
+                 type="java.lang.String"/>
+
+    <attribute   name="reloadable"
+          description="The reloadable flag for this web application"
+                 type="boolean"/>
+
+    <attribute   name="resources"
+          description="MBean Names of all the defined resource references
+	  for this application."
+                 type="java.lang.String[]"
+            writeable="false"/>
+
+    <attribute   name="swallowOutput"
+          description="Flag to set to cause the system.out and system.err 
+	  to be redirected to the logger when executing a servlet"
+                 type="boolean"/>
+
+    <attribute   name="useNaming"
+          description="Create a JNDI naming context for this application?"
+                   is="true"
+                 type="boolean"/>
+
+    <attribute   name="workDir"
+          description="The pathname to the work directory for this context"
+                 type="java.lang.String"/>
+
+    <operation   name="addEnvironment"
+          description="Add an environment entry for this web application"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="envName"
+          description="New environment entry name"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="addResource"
+          description="Add a resource reference for this web application"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="resourceName"
+          description="New resource reference name"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeEnvironment"
+          description="Remove any environment entry with the specified name"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="envName"
+          description="Name of the environment entry to remove"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeResource"
+          description="Remove any resource reference with the specified name"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="resourceName"
+          description="Name of the resource reference to remove"
+                 type="java.lang.String"/>
+    </operation>
+
+  </mbean>
+
+
+  <mbean         name="StandardContextValve"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Valve that implements the default basic behavior for the
+                        StandardContext container implementation"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.core.StandardContextValve">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+  </mbean>
+
+
+  <mbean         name="StandardEngine"
+            className="org.apache.catalina.mbeans.StandardEngineMBean"
+          description="Standard Engine Component"
+               domain="Catalina"
+                group="Engine"
+                 type="org.apache.catalina.core.StandardEngine">
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="defaultHost"
+          description="Name of the default Host for this Engine"
+                 type="java.lang.String"/>
+
+    <attribute   name="managedResource"
+          description="The managed resource this MBean is associated with"
+                 type="java.lang.Object"/>
+
+    <attribute   name="name"
+          description="Unique name of this Engine"
+                 type="java.lang.String"/>
+
+  </mbean>
+
+
+  <mbean         name="StandardEngineValve"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Valve that implements the default basic behavior for the
+                        StandardEngine container implementation"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.core.StandardEngineValve">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+  </mbean>
+
+
+  <mbean         name="StandardHost"
+            className="org.apache.catalina.mbeans.StandardHostMBean"
+          description="Standard Host Component"
+               domain="Catalina"
+                group="Host"
+                 type="org.apache.catalina.core.StandardHost">
+
+    <attribute   name="appBase"
+          description="The application root for this Host"
+                 type="java.lang.String"/>
+
+    <attribute   name="autoDeploy"
+          description="The auto deploy flag for this Host"
+                 type="boolean"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="deployXML"
+          description="deploy Context XML config files property"
+                 is="true"
+                 type="boolean"/>
+
+    <attribute   name="liveDeploy"
+          description="The live deploy flag for this Host"
+                 type="boolean"/>
+
+    <attribute   name="managedResource"
+          description="The managed resource this MBean is associated with"
+                 type="java.lang.Object"/>
+
+    <attribute   name="name"
+          description="Unique name of this Host"
+                 type="java.lang.String"/>
+
+    <attribute   name="unpackWARs"
+          description="Unpack WARs property"
+                 is="true"
+                 type="boolean"/>
+
+    <operation   name="addAlias"
+          description="Add an alias name that should be mapped to this Host"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="alias"
+          description="The alias to be added"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="findAliases"
+          description="Return the set of alias names for this Host"
+               impact="INFO"
+           returnType="java.lang.String[]"/>
+
+    <operation   name="getValves"
+          description="Return the MBean Names of the Valves associated with this
+                        Host"
+               impact="INFO"
+           returnType="java.lang.String[]"/>
+
+    <operation   name="removeAlias"
+          description="Remove the specified alias name from the aliases for this
+                        Host"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="alias"
+          description="Alias name to be removed"
+                 type="java.lang.String"/>
+    </operation>
+
+  </mbean>
+
+
+  <mbean         name="StandardHostValve"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Valve that implements the default basic behavior for the
+                        StandardHost container implementation"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.core.StandardHostValve">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+  </mbean>
+
+
+  <mbean         name="PersistentManager"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Standard implementation of the Manager interface"
+               domain="Catalina"
+                group="Manager"
+                 type="org.apache.catalina.session.PersistentManager" >
+
+    <attribute   name="algorithm"
+          description="The message digest algorithm to be used when generating
+                        session identifiers"
+                 type="java.lang.String"/>
+
+    <attribute   name="checkInterval"
+          description="The interval (in seconds) between checks for expired
+                        sessions"
+                 type="int"/>
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="distributable"
+          description="The distributable flag for Sessions created by this
+                        Manager"
+                 type="boolean"/>
+
+    <attribute   name="entropy"
+          description="A String initialization parameter used to increase the
+                        entropy of the initialization of our random number
+                        generator"
+                 type="java.lang.String"/>
+
+    <attribute   name="managedResource"
+          description="The managed resource this MBean is associated with"
+                 type="java.lang.Object"/>
+
+    <attribute   name="maxActiveSessions"
+          description="The maximum number of active Sessions allowed, or -1
+                        for no limit"
+                 type="int"/>
+
+    <attribute   name="maxInactiveInterval"
+          description="The default maximum inactive interval for Sessions
+                        created by this Manager"
+                 type="int"/>
+
+    <attribute name="maxIdleBackup"
+          description="The time interval (in seconds) since the last access
+                        to a session before it is eligible for being
+                        persisted to the session store, or -1 to disable"
+                 type="int"/>
+
+    <attribute name="maxIdleSwap"
+          description="The time interval (in seconds) since the last access
+                        to a session before it should be persisted to the
+                        session store, or -1 to disable"
+                 type="int" />
+
+    <attribute name="minIdleSwap"
+          description="The time interval (in seconds) since the last access
+                        to a session before it will be eligible to be
+                        persisted to the session store, or -1 to disable"
+                 type="int" />
+
+    <attribute name="saveOnRestart"
+          description="Should all sessions be persisted and reloaded when
+                        Tomcat is shut down and restarted?"
+                 type="boolean" />
+
+    <attribute   name="name"
+          description="The descriptive name of this Manager implementation
+                        (for logging)"
+                 type="java.lang.String"
+            writeable="false"/>
+
+  </mbean>
+
+
+  <mbean         name="StandardManager"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Standard implementation of the Manager interface"
+               domain="Catalina"
+                group="Manager"
+                 type="org.apache.catalina.session.StandardManager">
+
+    <attribute   name="algorithm"
+          description="The message digest algorithm to be used when generating
+                        session identifiers"
+                 type="java.lang.String"/>
+
+    <attribute   name="checkInterval"
+          description="The interval (in seconds) between checks for expired
+                        sessions"
+                 type="int"/>
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="distributable"
+          description="The distributable flag for Sessions created by this
+                        Manager"
+                 type="boolean"/>
+
+    <attribute   name="entropy"
+          description="A String initialization parameter used to increase the
+                        entropy of the initialization of our random number
+                        generator"
+                 type="java.lang.String"/>
+
+    <attribute   name="managedResource"
+          description="The managed resource this MBean is associated with"
+                 type="java.lang.Object"/>
+
+    <attribute   name="maxActiveSessions"
+          description="The maximum number of active Sessions allowed, or -1
+                        for no limit"
+                 type="int"/>
+
+    <attribute   name="maxInactiveInterval"
+          description="The default maximum inactive interval for Sessions
+                        created by this Manager"
+                 type="int"/>
+
+    <attribute   name="name"
+          description="The descriptive name of this Manager implementation
+                        (for logging)"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="pathname"
+          description="Path name of the disk file in which active sessions"
+                 type="java.lang.String"/>
+
+  </mbean>
+
+
+  <mbean         name="StandardServer"
+            className="org.apache.catalina.mbeans.StandardServerMBean"
+          description="Standard Server Component"
+               domain="Catalina"
+                group="Server"
+                 type="org.apache.catalina.core.StandardServer">
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="managedResource"
+          description="The managed resource this MBean is associated with"
+                 type="java.lang.Object"/>
+
+    <attribute   name="port"
+          description="TCP port for shutdown messages"
+                 type="int"/>
+
+    <attribute   name="shutdown"
+          description="Shutdown password"
+                 type="java.lang.String"/>
+
+    <operation   name="store"
+          description="Save current state to server.xml file"
+               impact="ACTION"
+           returnType="void">
+    </operation>
+
+  </mbean>
+
+
+  <mbean         name="StandardService"
+            className="org.apache.catalina.mbeans.StandardServiceMBean"
+          description="Standard Service Component"
+               domain="Catalina"
+                group="Service"
+                 type="org.apache.catalina.core.StandardService">
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="managedResource"
+          description="The managed resource this MBean is associated with"
+                 type="java.lang.Object"/>
+
+    <attribute   name="name"
+          description="Unique name of this Service"
+                 type="java.lang.String"/>
+
+  </mbean>
+
+
+  <mbean         name="StandardWrapperValve"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Valve that implements the default basic behavior for the
+                        StandardWrapper container implementation"
+               domain="Catalina"
+                group="Valve"
+                 type="org.apache.catalina.core.StandardWrapperValve">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+  </mbean>
+
+
+  <mbean         name="SystemErrLogger"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Simple implementation of Logger that writes to
+                        System.err"
+               domain="Catalina"
+                group="Logger"
+                 type="org.apache.catalina.logger.SystemErrLogger">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="verbosity"
+          description="The verbosity level for above which log messages may be
+                        filtered"
+                 type="int"/>
+
+  </mbean>
+
+
+  <mbean         name="SystemOutLogger"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Simple implementation of Logger that writes to
+                        System.out"
+               domain="Catalina"
+                group="Logger"
+                 type="org.apache.catalina.logger.SystemOutLogger">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="verbosity"
+          description="The verbosity level for above which log messages may be
+                        filtered"
+                 type="int"/>
+
+  </mbean>
+
+
+  <mbean         name="User"
+            className="org.apache.catalina.mbeans.UserMBean"
+          description="User from a user database"
+               domain="Users"
+                group="User"
+                 type="org.apache.catalina.User">
+
+    <attribute   name="fullName"
+          description="Full name of this user"
+                 type="java.lang.String"/>
+
+    <attribute   name="groups"
+          description="MBean Names of groups this user is a member of"
+                 type="java.lang.String[]"/>
+
+    <attribute   name="password"
+          description="Password of this user"
+                 type="java.lang.String"/>
+
+    <attribute   name="roles"
+          description="MBean Names of roles for this user"
+                 type="java.lang.String[]"
+            writeable="false"/>
+
+    <attribute   name="username"
+          description="User name of this user"
+                 type="java.lang.String"/>
+
+    <operation   name="addGroup"
+          description="Add a new group membership for this user"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="groupname"
+          description="Group name of the new group"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="addRole"
+          description="Add a new authorized role for this user"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="role"
+          description="Role to be added"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeGroup"
+          description="Remove an old group membership for this user"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="groupname"
+          description="Group name of the old group"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeGroups"
+          description="Remove all group memberships for this user"
+               impact="ACTION"
+           returnType="void">
+    </operation>
+
+    <operation   name="removeRole"
+          description="Remove an old authorized role for this user"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="role"
+          description="Role to be removed"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="removeRoles"
+          description="Remove all authorized roles for this user"
+               impact="ACTION"
+           returnType="void">
+    </operation>
+
+  </mbean>
+
+
+  <mbean         name="UserDatabaseRealm"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Realm connected to a UserDatabase as a global JNDI
+                        resource"
+               domain="Catalina"
+                group="Realm"
+                 type="org.apache.catalina.realm.UserDatabaseRealm">
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="resourceName"
+          description="The global JNDI name of the UserDatabase resource to use"
+                 type="java.lang.String"/>
+
+  </mbean>
+
+
+  <mbean         name="WebappLoader"
+            className="org.apache.catalina.mbeans.ClassNameMBean"
+          description="Classloader implementation which is specialized for
+                        handling web applications"
+               domain="Catalina"
+                group="Loader"
+                 type="org.apache.catalina.loader.WebappLoader">
+
+    <attribute   name="checkInterval"
+          description="The number of seconds between checks for modified
+                        classes"
+                 type="int"/>
+
+    <attribute   name="className"
+          description="Fully qualified class name of the managed object"
+                 type="java.lang.String"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="The debugging detail level for this component"
+                 type="int"/>
+
+    <attribute   name="delegate"
+          description="The 'follow standard delegation model' flag that will be
+                        used to configure our ClassLoader"
+                 type="boolean"/>
+
+    <attribute   name="reloadable"
+          description="The reloadable flag for this Loader"
+                 type="boolean"/>
+
+  </mbean>
+
+
+</mbeans-descriptors>
