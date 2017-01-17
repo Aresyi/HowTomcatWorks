@@ -66,6 +66,7 @@ public class SimpleContextValve implements Valve, Contained {
   }
 
   private void badRequest(String requestURI, HttpServletResponse response) {
+	System.err.println("requestURI:"+requestURI+" is bad request!");  
     try {
       response.sendError(HttpServletResponse.SC_BAD_REQUEST, requestURI);
     }
@@ -78,6 +79,7 @@ public class SimpleContextValve implements Valve, Contained {
   }
 
   private void notFound(String requestURI, HttpServletResponse response) {
+	System.err.println("requestURI:"+requestURI+" not found!");  
     try {
       response.sendError(HttpServletResponse.SC_NOT_FOUND, requestURI);
     }
