@@ -40,5 +40,6 @@
     <module>how-tomcat-works-ex07</module>
     <module>how-tomcat-works-ex08</module>
     <module>how-tomcat-works-ex09</module>
+    <module>how-tomcat-works-ex10</module>
   </modules>
 </project>
