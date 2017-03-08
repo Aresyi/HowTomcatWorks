@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  <servlet>
+    <servlet-name>Modern</servlet-name>
+    <servlet-class>ModernServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Primitive</servlet-name>
+    <servlet-class>PrimitiveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Modern</servlet-name>
+    <url-pattern>/Modern</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Primitive</servlet-name>
+    <url-pattern>/Primitive</url-pattern>
+  </servlet-mapping>
+</web-app>
