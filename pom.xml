@@ -44,5 +44,6 @@
     <module>how-tomcat-works-ex11</module>
     <module>how-tomcat-works-ex13</module>
     <module>how-tomcat-works-ex14</module>
+    <module>how-tomcat-works-ex15</module>
   </modules>
 </project>

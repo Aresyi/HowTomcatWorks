@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<employee firstName="Freddie" lastName="Mercury">
+  <office description="Headquarters">
+    <address streetName="Wellington Avenue" streetNumber="223"/>
+  </office>
+  <office description="Client site">
+    <address streetName="Downing Street" streetNumber="10"/>
+  </office>
+</employee>
