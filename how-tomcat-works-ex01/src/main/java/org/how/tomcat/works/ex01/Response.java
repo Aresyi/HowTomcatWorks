@@ -14,7 +14,6 @@ import java.io.OutputStream;
  * entity-header ) CRLF) CRLF [ message-body ] Status-Line = HTTP-Version SP
  * Status-Code SP Reason-Phrase CRLF
  * 
- * 08年毕业至今一直从事互联网运营产品系统的设计和研发工作。曾任职于DeNA中国（天下网）、中航信。目前就职“人脉通”上海研发中心，主要负责服务端基础架构。喜欢听歌&读书&骑行&跑步
  */
 public class Response {
 	private static final int BUFFER_SIZE = 1024;
