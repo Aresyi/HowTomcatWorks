@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE mbeans-descriptors PUBLIC
+ "-//Apache Software Foundation//DTD Model MBeans Configuration File"
+ "http://jakarta.apache.org/commons/dtds/mbeans-descriptors.dtd">
+
+<mbeans-descriptors>
+
+  <mbean name="myMBean"
+    className="javax.management.modelmbean.RequiredModelMBean"
+    description="The ModelMBean that manages our Car object"
+    type="ex20.pyrmont.modelmbeantest.Car">
+
+    <attribute name="Color"
+      description="The car color"
+      type="java.lang.String"/>
+
+    <operation name="drive"
+      description="drive method"
+      impact="ACTION"
+      returnType="void">
+      <parameter name="driver" description="the driver parameter"
+        type="java.lang.String"/>
+    </operation>
+
+  </mbean>
+
+</mbeans-descriptors>
