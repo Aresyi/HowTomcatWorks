@@ -767,7 +767,7 @@ public class ServerLifecycleListener
             createMBeans(connectors[j]);
         }
 
-        // Create the MBean for the associated Engine and friends
+        // Create the MBean for the associated Engine and friends 
         Engine engine = (Engine) service.getContainer();
         if (engine != null) {
             createMBeans(engine);
