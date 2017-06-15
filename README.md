@@ -65,8 +65,7 @@ Tomcat中有不少设计模式值得借鉴学习，如门面、观察者。还�
 
 大家在阅读时，应着重把握Tomcat作者的设计思想，在此基础上，再针对具体问题进行深入地学习和研究。
 
-带着好奇心，边读书，边看源码（尤其对比Tomcat最新代码：https://github.com/apache/tomcat。对比新旧代码，可见其更替优化的场景和过程），更应该亲手画相应的UML图和流程图。
-我整理的代码和UML图详见：https://github.com/Aresyi/HowTomcatWorks。最好Debug一遍每章示例Demo——实践出真知。
+带着好奇心，边读书，边看源码（尤其对比Tomcat[最新代码](https://github.com/apache/tomcat)。对比新旧代码，可见其更替优化的场景和过程），更应该亲手画相应的UML图和流程图。最好Debug一遍每章示例Demo——实践出真知。
 
 最后，进行知识关联梳理和整理，比如：Tomcat中用到了哪些设计模式？Tomcat中的管道（pipeline）和阀门（valve）和Servlet中的Filter以及Springmvc中拦截器对比，等等。
 
