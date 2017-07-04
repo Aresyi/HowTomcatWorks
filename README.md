@@ -18,7 +18,7 @@ Part of the UML diagram is as follows.
 2007年，一次在同学的宿舍里发现一本封面带有`Java`字样的书，煞有一种“这妹妹我曾见过”的感觉。后来问单片机老师：从事软件好，还是硬件好。老师推荐走软件路线。如果自己想干点什么，有台电脑就可以了~~也这就这样，我选择了偏软件，选择了似有一见钟情的Java切入。
 那会觉得Java比C有意思多了：C天天只会在DOS下面打印输出，一点也没Java可以用Swing做个贪吃蛇、做个象棋好玩。
 
-2008年，正式工作，尤其是用Java找到的饭碗，甭说多爱死Java了！从我当年注册CSDN的ID可见[LoveJavaYDJ](http://blog.csdn.net/LoveJavaYDJ)。如今看，觉得多俗气O(∩_∩)O哈！
+2008年，全球金融危机，多数公司裁员，不招人。记得，一次房东要卖阳台上的矿泉水瓶，人家说：“别说卖了，就是送给我，我也不要！小工厂倒闭的多，没人收了！”。苦苦寻觅、等待，最终通过Java找到饭碗！甭说多爱死Java了！从我当年注册CSDN的ID可见[LoveJavaYDJ](http://blog.csdn.net/LoveJavaYDJ)。如今看，觉得多俗气O(∩_∩)O哈！
 
 2009年，工作以来，一直默默用Java使用着Tomcat做着Web开发，慢慢慢慢觉得好无趣：天天就是Action -> Service -> Dao流水线式业务开发。一时以为Java只能做做Web开发，还觉得学Java没出息。还是C或C++牛掰，你看我们Java程序员整天
 用着他们用C或C++写的Tomcat~
